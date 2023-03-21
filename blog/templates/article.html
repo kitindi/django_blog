@@ -1,1 +1,10 @@
-{% extends 'main.html' %} {% block content%} {% endblock %}
+{% extends 'main.html' %} {% block content%}
+
+<div class="container">
+  <div class="w-full max-w-[850px] mx-auto mb-16 py-12">
+    {% load markdown_extras %}
+    <p>{{post.body | markdown | safe }}</p>
+  </div>
+</div>
+
+{% endblock %}
