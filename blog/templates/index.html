@@ -3,8 +3,8 @@
   <div class="w-full h-64 flex-row flex justify-center items-center">
     <div class="p-8 text-center">
       <h1 class="text-5xl mb-4 font-bold text-slate-600">Developer matters.</h1>
-      <h3 class="text-2xl font-bold text-slate-500">
-        Keep Reading, Keep Learning
+      <h3 class="text-2xl font-semibold text-slate-500">
+        Keep Reading, Keep Learning from my code learning journey
       </h3>
     </div>
   </div>
@@ -12,14 +12,40 @@
 <section class="section h-screen bg-white">
   <div class="container"></div>
   <div class="container">
-    {% for post in posts%}
+    <div class="columns">
+      <div class="column is-3 pl-32 pt-10">
+        <p class="text-lg font-semi-bold mb-2">Connect with me</p>
+        <div class="flex gap-3">
+          <a href="">
+            <i class="fa-brands fa-linkedin text-2xl"></i>
+          </a>
+          <a href="">
+            <i class="fa-brands fa-square-twitter text-2xl"></i>
+          </a>
+          <a href="">
+            <i class="fa-brands fa-square-github text-2xl"></i>
+          </a>
+        </div>
+      </div>
+      <div class="column is-9 p-10">
+        {% for post in posts%}
 
-    <div class="w-full max-w-[800px] mx-auto p-10">
-      <h2 class="text-2xl font-bold mb-5 text-green-500">{{post.title}}</h2>
-      <p class="text-lg">{{post.intro}}</p>
+        <div class="w-full max-w-[800px] mx-auto mb-16">
+          <a href="article/{{post.slug}}">
+            <p class="mb-4 text-small text-slate-500">
+              <span class="mr-3"><i class="fa-regular fa-calendar"></i></span
+              >{{post.created_at | date:'d, M Y'}}
+            </p>
+            <h2 class="text-2xl font-bold mb-5 text-green-500">
+              {{post.title}}
+            </h2>
+            <p class="text-lg">{{post.intro}}</p>
+          </a>
+        </div>
+
+        {% endfor %}
+      </div>
     </div>
-
-    {% endfor %}
   </div>
 </section>
 {% endblock content%}
